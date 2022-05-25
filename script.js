@@ -19,4 +19,15 @@ function makeGrid(sizeValue) {
     }
 }
 
+function changeColor(target) {
+    target.style.backgroundColor = 'black';
+}
+
+gridContainer.addEventListener('mouseover', function (e) {
+    let target = e.target;
+    if (target.matches('div.cell')) {
+        changeColor(target);
+    }
+})
+
 makeGrid(sizeValue);
