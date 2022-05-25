@@ -31,6 +31,20 @@ gridContainer.addEventListener('mouseover', function (e) {
 })
 
 const resetBtn = document.querySelector('#reset');
-resetBtn.addEventListener('click', () => {window.location.reload()});
+resetBtn.addEventListener('click', () => { window.location.reload() });
 
+
+const newGridBtn = document.querySelector('#newGrid');
+newGridBtn.addEventListener('click', () => {
+    sizeValue = prompt('Choose grid size up to 70', sizeValue);
+    if (sizeValue >= 1 && sizeValue <= 70) {
+        gridContainer.textContent = '';
+        makeGrid(sizeValue);
+    } else {
+        do sizeValue = prompt('Choose grid size up to 70', sizeValue);
+        while (sizeValue >= 1 && sizeValue <= 70);
+        gridContainer.textContent = '';
+        makeGrid(sizeValue);
+    }
+});
 makeGrid(sizeValue);
