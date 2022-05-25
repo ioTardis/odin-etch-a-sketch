@@ -24,10 +24,21 @@ body {
     font-size: 50px;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.left-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
 #grid {
     display: grid;
     justify-content: center;
-    margin:auto;
     grid-template-columns: repeat(var(--numCols), 1fr);
     grid-template-rows: repeat(var(--numRows), 1fr);
     width: 550px;

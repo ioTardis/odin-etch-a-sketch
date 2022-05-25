@@ -30,4 +30,7 @@ gridContainer.addEventListener('mouseover', function (e) {
     }
 })
 
+const resetBtn = document.querySelector('#reset');
+resetBtn.addEventListener('click', () => {window.location.reload()});
+
 makeGrid(sizeValue);
