@@ -1,7 +1,10 @@
 let sizeValue = 16;
 let cell;
 let rainbowModeOn = false;
+let eraserModeOn = false;
 
+
+//Building the grid
 const gridContainer = document.querySelector('#grid');
 
 function makeCell(cellNum) {
@@ -20,6 +23,10 @@ function makeGrid(sizeValue) {
     }
 }
 
+makeGrid(sizeValue);
+
+//Changing the color of the cell
+
 function changeColor(target) {
     target.style.backgroundColor = 'black';
 }
@@ -27,13 +34,18 @@ function changeColor(target) {
 gridContainer.addEventListener('mouseover', function (e) {
     let target = e.target;
     if (target.matches('div.cell')) {
-        if (rainbowModeOn === true) changeRainbowColor(target);
+        if (rainbowModeOn && !eraserModeOn) changeRainbowColor(target);
+        else if (eraserModeOn && !rainbowModeOn) target.style.backgroundColor = '#dee2e6';
         else changeColor(target);
     }
 })
 
+//Reset button
+
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', () => { window.location.reload() });
+
+//New grid button
 
 const newGridBtn = document.querySelector('#newGrid');
 newGridBtn.addEventListener('click', () => {
@@ -49,6 +61,24 @@ newGridBtn.addEventListener('click', () => {
     }
 });
 
+//Eraser button
+
+const eraserBtn = document.querySelector('#eraser');
+eraserBtn.addEventListener('click', () => {
+    eraserModeOn = true;
+    rainbowModeOn = false;
+})
+
+//Classic mode button
+
+const classicBtn = document.querySelector('#classic');
+classicBtn.addEventListener('click', () => {
+    rainbowModeOn = false;
+    eraserModeOn = false;
+})
+
+//Rainbow mode button
+
 function changeRainbowColor(target) {
     target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
 }
@@ -56,10 +86,5 @@ function changeRainbowColor(target) {
 const rainbowBtn = document.querySelector('#rainbow');
 rainbowBtn.addEventListener('click', () => {
     rainbowModeOn = true;
+    eraserModeOn = false;
 });
-
-const classicBtn = document.querySelector('#classic');
-classicBtn.addEventListener('click', () => {
-    rainbowModeOn = false;
-})
-makeGrid(sizeValue);
