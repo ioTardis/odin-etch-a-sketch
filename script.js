@@ -1,5 +1,6 @@
 let sizeValue = 16;
 let cell;
+let rainbowModeOn = false;
 
 const gridContainer = document.querySelector('#grid');
 
@@ -26,13 +27,13 @@ function changeColor(target) {
 gridContainer.addEventListener('mouseover', function (e) {
     let target = e.target;
     if (target.matches('div.cell')) {
-        changeColor(target);
+        if (rainbowModeOn === true) changeRainbowColor(target);
+        else changeColor(target);
     }
 })
 
 const resetBtn = document.querySelector('#reset');
 resetBtn.addEventListener('click', () => { window.location.reload() });
-
 
 const newGridBtn = document.querySelector('#newGrid');
 newGridBtn.addEventListener('click', () => {
@@ -47,4 +48,18 @@ newGridBtn.addEventListener('click', () => {
         makeGrid(sizeValue);
     }
 });
+
+function changeRainbowColor(target) {
+    target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+}
+
+const rainbowBtn = document.querySelector('#rainbow');
+rainbowBtn.addEventListener('click', () => {
+    rainbowModeOn = true;
+});
+
+const classicBtn = document.querySelector('#classic');
+classicBtn.addEventListener('click', () => {
+    rainbowModeOn = false;
+})
 makeGrid(sizeValue);
