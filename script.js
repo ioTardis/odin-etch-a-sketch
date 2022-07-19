@@ -28,7 +28,8 @@ makeGrid(sizeValue);
 //Changing the color of the cell
 
 function changeColor(target) {
-    target.style.backgroundColor = 'black';
+    const colorpicker = document.querySelector('#colorpicker');
+    target.style.backgroundColor = colorpicker.value;
 }
 
 gridContainer.addEventListener('mouseover', function (e) {

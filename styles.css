@@ -35,11 +35,17 @@ body {
     margin-left: -250px;
 }
 
+#colorpicker {
+    align-self: center;
+    width: 85px;
+    height: 40px;
+}
+
 .left-menu {
     display: flex;
+    gap: 20px;
     flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    justify-content: space-evenly;
 }
 
 button {
@@ -78,4 +84,9 @@ button {
     text-align: center;
     flex-shrink: 0;
     color: #cdb4db;
+}
+
+a {
+    text-decoration: none;
+    color: #a86fc9;
 }
