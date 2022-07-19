@@ -8,10 +8,11 @@ Created with HTML, CSS and JS as a part of Odin Project path. Imitation of Etch 
 - Creating custom grid up to 70 cells on each side
 - Eraser mode
 - Rainbow mode with random colours appearing in the cells
+- Colour picker
 
 ## Ideas for future development
 
-- Color picker
+
 - Save images
 - Switch to clicking instead of hovering
 
